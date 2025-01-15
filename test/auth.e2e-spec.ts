@@ -21,8 +21,8 @@ describe('Authentication System (e2e)', () => {
       .post('/auth')
       .send(
         {
-            email: userEmail,
-            password: "123"
+          email: userEmail,
+          password: "123"
         }
       )
       .expect(201)
@@ -32,5 +32,27 @@ describe('Authentication System (e2e)', () => {
         expect(email).toEqual(userEmail)
 
       });
+  });
+
+  it('handles a signUp request and return logged in user', async () => {
+    const userEmail = "tes345345345t@gmail.com"
+    const res = await request(app.getHttpServer())
+      .post('/auth')
+      .send(
+        {
+          email: userEmail,
+          password: "123"
+        }
+      )
+      .expect(201)
+
+    const cookie = res.get('Set-Cookie');
+
+    const { body } = await request(app.getHttpServer())
+      .get("/auth/whoami")
+      .set("Cookie", cookie).
+      expect(200)
+
+    expect(body.email).toEqual(userEmail);
   });
 });
