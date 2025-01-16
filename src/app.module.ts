@@ -18,18 +18,6 @@ const cookieSession = require('cookie-session');
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,
     }),
-    // TypeOrmModule.forRoot(dbConfig),
-    // TypeOrmModule.forRootAsync({
-    //   inject: [ConfigService],
-    //   useFactory: (config: ConfigService) => {
-    //     return {
-    //       type: "sqlite",
-    //       database: config.get("DB_NAME"),
-    //       entities: [User, Report],
-    //       synchronize: true,
-    //     }
-    //   }
-    // }),
     UsersModule,
     ReportsModule
   ],
