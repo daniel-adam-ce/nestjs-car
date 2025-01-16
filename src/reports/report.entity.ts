@@ -7,7 +7,7 @@ export class Report {
     id: number;
 
     @ManyToOne(() => User, (user) => user.reports)
-    user: number;
+    user: User;
     
     @Column()
     price: number;
