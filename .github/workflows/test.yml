@@ -1,0 +1,24 @@
+name: Tests
+
+on:
+    push:
+      branches: [ "main" ]
+    pull_request:
+      branches: [ "main" ]
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use NodeJS 
+      uses: actions/setup-node@v4
+      with:
+        node-version: v22.11.0
+
+    - name: Create .env
+      run:  |
+        echo "${{ secrets.DEV_ENV }}" > .env.test
+    - name: Test
+      run: npm run test:e2e
