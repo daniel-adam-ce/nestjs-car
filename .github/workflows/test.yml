@@ -11,9 +11,6 @@ jobs:
     runs-on: ubuntu-latest        
 
     steps:
-    - name: Install sqlite
-      run: sudo apt install sqlite3 
-
     - uses: actions/checkout@v2
     - name: Use NodeJS 
       uses: actions/setup-node@v4
