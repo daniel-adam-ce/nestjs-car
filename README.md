@@ -1,2 +1,2 @@
-## Nest.js API
-Basic Nest.js example API
+## NestJS API
+Basic NestJS example API
