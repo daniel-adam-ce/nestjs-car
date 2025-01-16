@@ -10,11 +10,10 @@ jobs:
   e2e-tests:
     runs-on: ubuntu-latest        
 
-    services:
-        sqlite:
-            image: keinos/sqlite3
-            
     steps:
+    - name: Install sqlite
+      run: sudo apt install sqlite3 
+
     - uses: actions/checkout@v2
     - name: Use NodeJS 
       uses: actions/setup-node@v4
